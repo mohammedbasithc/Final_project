@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Mohammed Basith C",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 20, "left": 300, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "mpu", "top": -34.58, "left": 434.32, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": 339.14,
+      "left": 288.23,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "button",
+      "top": 227,
+      "left": 432,
+      "attrs": { "color": "blue", "label": "ACCIDENT" }
+    }
+  ],
+  "connections": [
+    [ "mpu:VCC", "esp:3V3", "red", [] ],
+    [ "mpu:GND", "esp:GND.1", "black", [] ],
+    [ "mpu:SDA", "esp:21", "green", [] ],
+    [ "mpu:SCL", "esp:22", "blue", [] ],
+    [ "oled:VCC", "esp:3V3", "red", [] ],
+    [ "oled:GND", "esp:GND.2", "black", [] ],
+    [ "oled:SDA", "esp:21", "green", [] ],
+    [ "oled:SCL", "esp:22", "blue", [] ],
+    [ "button:1.l", "esp:4", "yellow", [] ],
+    [ "button:2.l", "esp:GND.3", "black", [] ]
+  ],
+  "dependencies": {}
+}
