@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "author": "Mohammed Basith C",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "base",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "baseOLED",
+      "top": -170,
+      "left": 260,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "baseBuzzer",
+      "top": 170,
+      "left": 270,
+      "attrs": {
+        "volume": "0.7"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "baseLED",
+      "top": 260,
+      "left": 280,
+      "attrs": {
+        "color": "red",
+        "label": "EMERGENCY"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "testButton",
+      "top": 170,
+      "left": -200,
+      "attrs": {
+        "color": "red",
+        "label": "TEST EMERGENCY"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "baseOLED:VCC",
+      "base:3V3",
+      "red",
+      []
+    ],
+    [
+      "baseOLED:GND",
+      "base:GND.1",
+      "black",
+      []
+    ],
+    [
+      "baseOLED:SDA",
+      "base:D21",
+      "green",
+      []
+    ],
+    [
+      "baseOLED:SCL",
+      "base:D22",
+      "blue",
+      []
+    ],
+
+    [
+      "baseBuzzer:1",
+      "base:GND.2",
+      "black",
+      []
+    ],
+    [
+      "baseBuzzer:2",
+      "base:D27",
+      "purple",
+      []
+    ],
+
+    [
+      "baseLED:A",
+      "base:D25",
+      "red",
+      []
+    ],
+    [
+      "baseLED:C",
+      "base:GND.3",
+      "black",
+      []
+    ],
+
+    [
+      "testButton:1.l",
+      "base:D4",
+      "red",
+      []
+    ],
+    [
+      "testButton:2.l",
+      "base:GND.4",
+      "black",
+      []
+    ],
+
+    [
+      "base:TX2",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "base:RX2",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
